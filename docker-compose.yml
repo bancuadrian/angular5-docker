@@ -1,0 +1,20 @@
+version: "2"
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
+          ip_range: 10.0.0.0/24
+          gateway: 10.0.0.254
+
+services:
+  angular5:
+    image: bancuadrian/angular5
+    container_name: "angular5"
+    ports:
+      - "4200:4200"
+    # mount your project folder to container
+    # ensure that project folder is shared in docker
+    volumes:
+      - /Users/bancuadrian/Projects/LetsBuildTvShowTrackerWithAngular5/show-tracker:/home/show-tracker
